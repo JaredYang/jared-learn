@@ -7,5 +7,5 @@ package com.jared.core.inteceptor;
  * Time: 下午6:31
  * To change this template use File | Settings | File Templates.
  */
-public class UserLoadIntercepter {
+public class UserLoadInterceptor {
 }
