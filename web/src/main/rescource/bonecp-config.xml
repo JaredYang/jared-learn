@@ -1,0 +1,32 @@
+<bonecp-config>
+    <default-config>
+        <property name="minConnectionsPerPartition">10</property>
+        <property name="maxConnectionsPerPartition">20</property>
+        <property name="acquireIncrement">2</property>
+        <!--Number of new connections to create in 1 batch.-->
+        <property name="partitionCount">2</property>
+        <property name="idleConnectionTestPeriodInMinutes">1</property>
+        <!--Connections older than this are sent a keep-alive statement. Minutes will be convert to milliseconds.-->
+        <property name="idleMaxAgeInMinutes">10</property>
+        <!--Maximum age of an unused connection before it is closed off. Minutes will be convert to milliseconds.-->
+        <property name="connectionTestStatement">/* ping */ SELECT 1</property>
+        <!--SQL statement to use for keep-alive/test of connection.-->
+        <property name="releaseHelperThreads">0</property>
+        <!--Number of release-connection helper threads to create per partition. 0 means don't want this.-->
+        <property name="logStatementsEnabled">false</property>
+        <property name="acquireRetryDelayInMs">7000</property>
+        <property name="acquireRetryAttempts">3</property>
+        <property name="lazyInit">false</property>
+        <!--If set to true, the connection pool will remain empty until the first connection is obtained.-->
+        <property name="disableJMX">true</property>
+        <property name="queryExecuteTimeLimitInMs">500</property>
+        <!--Queries taking longer than this limit to execute are logged.-->
+        <property name="poolAvailabilityThreshold">10</property>
+        <!--Create more connections when we hit x% of our possible number of connections.-->
+        <property name="connectionTimeoutInMS">20000</property>
+        <!--Time to wait before a call to getConnection() times out and returns an error. in milliseconds-->
+    </default-config>
+    <named-config name="dajie">
+        <property name="connectionTimeoutInMs">20000</property>
+    </named-config>
+</bonecp-config>
