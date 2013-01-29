@@ -17,6 +17,7 @@
     <name>jared-base-core</name>
     <url>http://www.jared.com</url>
 
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
