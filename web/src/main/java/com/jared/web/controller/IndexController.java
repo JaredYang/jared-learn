@@ -15,4 +15,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("jared")
 public class IndexController {
       private UserService userService;
+    //-Xmx512m -XX:MaxPermSize=128m
 }
