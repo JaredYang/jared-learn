@@ -15,9 +15,6 @@
         <level value="INFO"/>
         <appender-ref ref="stdout"/>
     </logger>
-    <logger name="com.danga" additivity="false">
-        <level value="OFF"/>
-    </logger>
     <root>
         <level value="INFO"/>
         <appender-ref ref="stdout"/>
