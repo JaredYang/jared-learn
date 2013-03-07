@@ -12,7 +12,40 @@
     <packaging>war</packaging>
 
     <name>jared-core-web</name>
-    <url>http://www.jared.com</url>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <excludes>
+                    <exclude>**/.svn</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/.svn</exclude>
+                    <exclude>**/*.ftl</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/.svn</exclude>
+                </excludes>
+                <includes>
+                    <include>**/*.ftl</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
 
     <dependencies>
         <dependency>
@@ -100,8 +133,5 @@
 
     </dependencies>
 
-    <build>
-        <finalName>web</finalName>
-    </build>
 
 </project>

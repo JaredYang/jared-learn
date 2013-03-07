@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd" >
+
+<!-- http://www.mybatis.org/core/zh/sqlmap-xml.html  -->
+
+<mapper  namespace="com.jared.core.dao.PeopleDao">
+ <resultMap type="com.jared.core.model.People" id="result_map">
+ 	<id column="id" property="id" jdbcType="INTEGER"/>
+ 	<result column="name" property="name" jdbcType="VARCHAR"/>
+ 	<result column="age" property="age" jdbcType="INTEGER"/>
+ 	<result column="birth_day" property="birthDay" jdbcType="TIMESTAMP"/>
+ </resultMap>
+ 
+ <sql id="column_list">
+ 	id,name,age,birth_day
+ </sql>
+ 
+ <insert id="insert" useGeneratedKeys="true" parameterType="com.jared.core.model.People" >
+ 	insert into tb_people
+ 	<trim prefix="(" suffix=")" suffixOverrides=",">
+ 		<if test="name">
+ 			name,
+ 		</if>
+ 		<if test="age">
+ 			age,
+ 		</if>
+ 		<if test="birthDay">
+ 			birth_day,
+ 		</if>
+ 	</trim>
+ 	<trim prefix=" values (" suffix=")" suffixOverrides=",">
+ 		<if test="name">
+ 			#{name,jdbcType=VARCHAR},
+ 		</if>
+ 		<if test="age">
+ 			#{age,jdbcType=INTEGER},
+ 		</if>
+ 		<if test="birthDay">
+ 			#{birthDay,jdbcType=TIMESTAMP},
+ 		</if>
+ 	</trim>
+ 	<selectKey keyProperty="id" resultType="java.lang.Integer">
+ 		select LAST_INSERT_ID()
+ 	</selectKey>
+ </insert>	
+ 
+ <delete id="delete" parameterType="java.lang.Integer" > 
+ 	delete from tb_people where id = #{id}
+ </delete>
+ 
+ <!-- 批量插入 INSERT tb_fnms_boss_video(boss_id,video_id) VALUES (1,1),(1,2),(1,3) -->
+ <select id="insertBatch" parameterType="java.util.List">
+        insert ignore into tb_people (name,age) values
+     <foreach collection="list" item="item" index="index" separator=",">(#{item.name,jdbcType=VARCHAR},#{item.age,jdbcType=INTEGER})</foreach>
+ </select>
+ 
+ <!--  set 用法 set元素主要是用在更新操作的时候，它的主要功能和where元素其实是差不多的，主要是在包含的语句前输出一个set，
+ 然后如果包含的语句是以逗号结束的话将会把该逗号忽略，如果set包含的内容为空的话则会出错。有了set元素我们就可以动态的更新那些修改了的字段 -->
+ <update id="update" parameterType="com.jared.core.model.People">
+ 	 update tb_people 
+ 	 <set>
+ 	 	<if test="name != null">
+ 	 		name = #{name},
+ 	 	</if>
+ 	 	<if test="age != null">
+ 	 		age = #{age},
+ 	 	</if>
+ 	 	<if test="birthDay != null">
+ 	 		birth_day = #{birthDay},
+ 	 	</if>
+ 	 </set>
+ 	 where id = #{id}
+ </update>
+ 
+ <!-- 返回 model形式数据 -->
+ <select id="selectById" parameterType="java.lang.Integer" resultMap="result_map">
+	select <include refid="column_list"/> from  tb_people where id = #{id}	
+ </select>
+ 
+ <!-- 返回List<Map>  形式结果  key 为属性名字 value 为查询结果值 -->
+ <select id="selectReturnMap" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+ 	select id ,name ,age from tb_people where id = #{id}	
+ </select>
+ 
+ <select id="selectByCondition" parameterType="com.jared.core.model.People" resultMap="result_map">
+ 	select <include refid="column_list"/> from tb_people
+ 	<!-- where 元素知道如果由被包含的标记返回任意内容,就仅仅插入“WHERE” 。而且,如 果以“AND”或“OR”开头的内容,那么就会跳过 WHERE 不插入。 
+ 		如果最后结果 where and age <=5  ,ibatis 最自动去掉and 
+ 	-->
+ 	<where>
+ 	 	<if test="name!=null">
+ 	 		and name like concat("%",#{name},"%")
+ 	 	</if>
+ 	 	<if test="age !=null">
+ 	 		and age  <![CDATA[<= ]]> #{age}
+ 	 	</if>
+ 	</where>
+ </select>
+ 
+  <select id="selectByConditionT" parameterType="com.jared.core.model.People" resultMap="result_map">
+ 	select <include refid="column_list"/> from tb_people
+ 	<trim prefix="where" prefixOverrides="and |or">
+ 		<!-- trim 的方式也可以代替where    prefixOverrides 的意思是把包含内容的头部覆盖掉 比如下面的 name 前面的 and 然后-->
+ 		<if test="name!=null">
+ 	 		and name like concat("%",#{name},"%")
+ 	 	</if>
+ 	 	<if test="age !=null">
+ 	 		and age  <![CDATA[<= ]]> #{age}
+ 	 	</if>
+ 	</trim>
+ </select>
+ 
+ <!-- choose when 用法 -->
+  <select id="selectByConditionChoose" parameterType="com.jared.core.model.People" resultMap="result_map">
+ 	select <include refid="column_list"/> from tb_people where 1=1
+ 	<choose>
+ 		<when test="name!=null">
+ 			and name like concat("%",#{name},"%")
+ 		</when>
+ 		<when test="age !=null">
+ 			and age  <![CDATA[<= ]]> #{age}
+ 		</when>
+ 		<otherwise>
+ 			and age = 20
+ 		</otherwise>
+ 	</choose>
+ </select>
+ 
+ <!-- item表示集合中每一个元素进行迭代时的别名，index指定一个名字，用于表示在迭代过程中，每次迭代到的位置，
+ open表示该语句以什么开始，separator表示在每次进行迭代之间以什么符号作为分隔符，close表示以什么结束 
+ 如果传入的是单参数且参数类型是一个List的时候，collection属性值为list
+如果传入的是单参数且参数类型是一个array数组的时候，collection的属性值为array
+如果传入的参数是多个的时候，我们就需要把它们封装成一个Map了，当然单参数也可以封装成map，实际上如果你在传入参数的时候，
+在MyBatis里面也是会把它封装成一个Map的，map的key就是参数名，所以这个时候collection属性值就是传入的List或array对象在自己封装的map里面的key
+ -->
+ <select id="selectByIdList" parameterType="java.util.List" resultMap="result_map">
+ 	select <include refid="column_list"/> from tb_people
+ 	where id in 
+ 	<foreach collection="idList" item="item"  index="index" open="(" close=")" separator=",">
+ 		 #{item,jdbcType=INTEGER}
+ 	</foreach>
+  </select>
+
+
+ <!-- FIND_IN_SET() video_jobhunter 字段记录本期视频中参加的选手的ID 用的逗号分隔 -->
+ <select id="select" parameterType="java.util.Map" resultMap="result_map" >
+    select 
+    <include refid="column_list" />
+    from tb_people
+      <trim prefix="where" prefixOverrides="and">
+          <if test="age != null" >
+              age = #{age,jdbcType=INTEGER}
+          </if>
+          <!--<if test="jobHunterId != null" >
+              FIND_IN_SET(${jobHunterId}, video_jobhunter)
+          </if>-->
+      </trim>
+    <if test="order != null" >
+      order by ${order}
+    </if>
+  </select>
+ 
+ 
+ 
+</mapper>

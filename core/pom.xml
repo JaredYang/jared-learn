@@ -17,6 +17,21 @@
     <name>jared-base-core</name>
     <url>http://www.jared.com</url>
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <excludes>
+                    <exclude>**/.svn</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -79,17 +94,18 @@
         </dependency>
 
 
-        <!--<dependency>-->
-            <!--<groupId>org.apache.httpcomponents</groupId>-->
-            <!--<artifactId>httpcomponents-client</artifactId>-->
-            <!--<version>4.2.2</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.jolbox</groupId>
+            <artifactId>bonecp</artifactId>
+            <version>0.7.1.RELEASE</version>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.apache.httpcomponents</groupId>-->
-            <!--<artifactId>httpcomponents-core</artifactId>-->
-            <!--<version>4.2.3</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1-rc1</version>
+        </dependency>
+
 
     </dependencies>
 
