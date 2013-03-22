@@ -57,46 +57,52 @@ public class JedisClient {
         }
     }
 
-    public void decr(String key) {
+    public Long decr(String key) {
         Jedis jedis = null;
+        Long res = null;
         try {
             jedis = jedisManager.getResource();
             if (jedis != null) {
-                jedis.decr(key);
+                res = jedis.decr(key);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             jedisManager.returnResource(jedis);
         }
+        return res;
     }
 
-    public void decrBy(String key,long num) {
+    public Long decrBy(String key,long num) {
         Jedis jedis = null;
+        Long res = null;
         try {
             jedis = jedisManager.getResource();
             if (jedis != null) {
-                jedis.decrBy(key,num);
+                res =  jedis.decrBy(key,num);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             jedisManager.returnResource(jedis);
         }
+        return res;
     }
 
-    public void del(String... keys) {
+    public Long del(String... keys) {
         Jedis jedis = null;
+        Long res = null;
         try {
             jedis = jedisManager.getResource();
             if (jedis != null) {
-                jedis.del(keys);
+                res = jedis.del(keys);
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             jedisManager.returnResource(jedis);
         }
+        return res;
     }
 
 

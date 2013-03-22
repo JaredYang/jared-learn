@@ -3,6 +3,7 @@ package com.jared.web.controller;
 import com.jared.core.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,4 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
       private UserService userService;
     //-Xmx512m -XX:MaxPermSize=128m
+
+    @RequestMapping("index")
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+         return modelAndView;
+    }
 }

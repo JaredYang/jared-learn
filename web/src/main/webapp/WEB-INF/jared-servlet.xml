@@ -18,10 +18,25 @@
 
 
     <!-- 针对freemarker的视图配置 -->
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">10</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="number_format">#.##</prop>
+            </props>
+        </property>
+    </bean>
+
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="cache" value="true" />
-        <property name="prefix" value="" />
+        <property name="prefix" value="/WEB-INF/ftl/"/>
         <property name="suffix" value=".ftl" />
         <property name="contentType" value="text/html;charset=UTF-8"></property>
         <property name="requestContextAttribute" value="request" />
