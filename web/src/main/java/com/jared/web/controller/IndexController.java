@@ -15,12 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("jared")
 public class IndexController {
-      private UserService userService;
-    //-Xmx512m -XX:MaxPermSize=128m
-
+    private UserService userService;
     @RequestMapping("index")
     public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("hello","helloworld");
         modelAndView.setViewName("index");
          return modelAndView;
     }

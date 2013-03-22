@@ -17,10 +17,9 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
 
-    <!-- 针对freemarker的视图配置 -->
     <bean id="freemarkerConfig"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <property name="templateLoaderPath" value="" />
         <property name="defaultEncoding" value="utf-8" />
         <property name="freemarkerSettings">
             <props>
@@ -35,7 +34,7 @@
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="cache" value="true" />
+        <property name="cache" value="false" />
         <property name="prefix" value="/WEB-INF/ftl/"/>
         <property name="suffix" value=".ftl" />
         <property name="contentType" value="text/html;charset=UTF-8"></property>

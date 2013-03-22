@@ -48,12 +48,12 @@
 
 
     <dependencies>
+
         <dependency>
             <groupId>com.jared.core</groupId>
             <artifactId>jared-base-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
 
 
         <dependency>
@@ -125,6 +125,12 @@
         </dependency>
 
         <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
