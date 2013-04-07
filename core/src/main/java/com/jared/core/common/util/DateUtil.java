@@ -122,4 +122,25 @@ public class DateUtil {
         calendar.setTime(date);
         return calendar.get(Calendar.DAY_OF_YEAR);
     }
+
+    //获取日期所在月的最后一天
+    private String getLastDayOfMonth(Date date) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MONTH, 1);    //加一个月
+        calendar.set(Calendar.DATE, 1);        //设置为该月第一天
+        calendar.add(Calendar.DATE, -1);    //再减一天即为上个月最后一天
+        String day_last = df.format(calendar.getTime());
+        return day_last;
+    }
+
+    //获取日期的前一天
+    public static Date getSpecifiedDayBefore(Date specifiedDay) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(specifiedDay);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day - 1);
+        return c.getTime();
+    }
 }

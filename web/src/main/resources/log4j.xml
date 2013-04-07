@@ -12,8 +12,11 @@
     <logger name="com.opensymphony.xwork2.ognl" additivity="false">
         <level value="ERROR"/>
     </logger>
-    <logger name="com.dajie" additivity="true">
-        <level value="INFO"/>
+    <logger name="com.jared" additivity="true">
+        <level value="debug"/>
+    </logger>
+    <logger name="org.springframework.beans.factory" additivity="true">
+        <level value="debug"/>
     </logger>
 
     <root>
