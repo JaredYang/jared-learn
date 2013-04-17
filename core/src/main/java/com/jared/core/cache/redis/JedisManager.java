@@ -21,7 +21,7 @@ public class JedisManager {
 
     private JedisPool jedisPool;
 
-    public JedisManager() {
+    private JedisManager() {
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxActive(300);
         config.setMinIdle(2);
