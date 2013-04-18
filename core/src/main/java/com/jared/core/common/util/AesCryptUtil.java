@@ -12,11 +12,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.zip.CRC32;
 
-/**
- * User: haluo
- * Date: 11-4-19
- * Time: 下午2:08
- */
+
 public class AesCryptUtil {
     private static final Log logger = LogFactory.getLog(AesCryptUtil.class);
     private final static byte[] iv =

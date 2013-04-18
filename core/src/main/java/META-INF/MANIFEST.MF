@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Class-Path: spring-webmvc-3.0.5.RELEASE.jar ognl-3.0.6.jar spring-cont
+ ext-support-3.0.5.RELEASE.jar commons-io-2.0.1.jar spring-context-3.0
+ .5.RELEASE.jar commons-logging-1.1.1.jar zookeeper-3.3.0.jar asm-tree
+ -3.3.jar commons-httpclient-3.1-rc1.jar spring-expression-3.0.5.RELEA
+ SE.jar jul-to-slf4j-1.7.2.jar freemarker-2.3.19.jar asm-3.3.jar asm-c
+ ommons-3.3.jar slf4j-api-1.7.2.jar commons-logging-1.0.4.jar spring-a
+ sm-3.0.5.RELEASE.jar mybatis-3.1.1.jar guava-r08.jar spring-web-3.0.5
+ .RELEASE.jar javassist-3.11.0.GA.jar commons-codec-1.2.jar mysql-conn
+ ector-java-5.1.17.jar commons-pool-1.5.5.jar commons-fileupload-1.2.2
+ .jar jline-0.9.94.jar jedis-2.1.0.jar freemarker-gae-2.3.19.jar commo
+ ns-lang3-3.1.jar aopalliance-1.0.jar spring-core-3.0.5.RELEASE.jar sp
+ ring-beans-3.0.5.RELEASE.jar slf4j-log4j12-1.7.2.jar spring-aop-3.0.5
+ .RELEASE.jar mongo-java-driver-2.10.1.jar log4j-1.2.17.jar persistenc
+ e-api-1.0.jar xwork-core-2.3.8.jar bonecp-0.7.1.RELEASE.jar activatio
+ n-1.1.1.jar jcl-over-slf4j-1.7.2.jar servlet-api-2.5.jar struts2-core
+ -2.3.8.jar mail-1.4.5.jar
+Main-Class: 
+
