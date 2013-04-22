@@ -19,7 +19,7 @@ public class ShapeDemo {
                 shape = new Rectangle();
                 break;
             case 1:
-                shape = new Triangle();
+                //shape = new Triangle();
                 break;
             case 2:
                 shape = new Circle();
