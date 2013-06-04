@@ -1,9 +1,6 @@
 package com.jared.core.zookeeper;
 
 import org.apache.zookeeper.server.ZooKeeperServerMain;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  * TestMainServer

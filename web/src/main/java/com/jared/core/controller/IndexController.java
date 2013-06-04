@@ -1,4 +1,4 @@
-package com.jared.web.controller;
+package com.jared.core.controller;
 
 import com.jared.core.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("jared")
 public class IndexController {
+
     private UserService userService;
     @RequestMapping("index")
     public ModelAndView index(){

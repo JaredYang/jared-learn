@@ -370,7 +370,7 @@ var JSHINT = (function () {
 
 
         // browser contains a set of global names which are commonly provided by a
-        // web browser environment.
+        // core browser environment.
         browser = {
             ArrayBuffer              :  false,
             ArrayBufferView          :  false,

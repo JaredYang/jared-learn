@@ -1,4 +1,4 @@
-package com.jared.web.bean;
+package com.jared.core.bean;
 
 /**
  * Created with IntelliJ IDEA.

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 /**
- * see detail from web site: http://www.mybatis.org/core/zh/getting-started.html
+ * see detail from core site: http://www.mybatis.org/core/zh/getting-started.html
  * @author junde.yang
  *
  */

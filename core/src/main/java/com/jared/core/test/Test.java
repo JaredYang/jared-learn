@@ -1,5 +1,7 @@
 package com.jared.core.test;
 
+import java.io.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: junde.yang
@@ -9,6 +11,41 @@ package com.jared.core.test;
  */
 public class Test {
     public static void main(String[] args) {
-        int i = 10;
+        File file = new File("D:/huawei");
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            if (files != null && files.length > 0) {
+                for (File f : files) {
+                    readFile(f.getAbsolutePath());
+                }
+            }
+        }
+
+    }
+
+    private static void readFile(String filePath) {
+        System.out.println(filePath);
+        File dest = new File("D:/huawei.sql");
+        File file = new File(filePath);
+        if (file.exists()) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(dest, true));
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    bufferedWriter.write(line);
+                    System.out.println(line);
+                    bufferedWriter.flush();
+                    bufferedWriter.newLine();
+                }
+
+                bufferedReader.close();
+                bufferedWriter.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
