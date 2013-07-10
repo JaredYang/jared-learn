@@ -1,9 +1,6 @@
 package com.jared.core.service;
 
-import com.jared.core.model.People;
-import com.jared.core.service.Impl.PeopleServiceImpl;
-
-import java.util.Date;
+import com.jared.core.service.impl.PeopleServiceImpl;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,10 +13,10 @@ public class ServiceTest {
     //@Test
     public void peopleServiceTest(){
         PeopleService peopleService = new PeopleServiceImpl();
-        People people = new People();
+        /*People people = new People();
         people.setName("杨俊德");
         people.setAge(25);
         people.setBirthDay(new Date());
-        peopleService.insertPeople(people);
+        peopleService.insertPeople(people);*/
     }
 }

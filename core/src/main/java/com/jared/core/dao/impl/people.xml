@@ -135,10 +135,12 @@
  -->
  <select id="selectByIdList" parameterType="java.util.List" resultMap="result_map">
  	select <include refid="column_list"/> from tb_people
- 	where id in 
- 	<foreach collection="idList" item="item"  index="index" open="(" close=")" separator=",">
- 		 #{item,jdbcType=INTEGER}
- 	</foreach>
+ 	where id in
+     <if test="idList != null" >
+        <foreach collection="idList" item="item"  index="index" open="(" close=")" separator=",">
+             #{item,jdbcType=INTEGER}
+        </foreach>
+     </if>
   </select>
 
 
@@ -156,7 +158,7 @@
           </if>-->
       </trim>
     <if test="order != null" >
-      order by ${order}
+      order by id
     </if>
   </select>
  

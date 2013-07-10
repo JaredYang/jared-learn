@@ -1,7 +1,6 @@
 package com.jared.core.redis;
 
 import com.jared.core.cache.redis.JedisClient;
-import org.junit.Test;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +11,7 @@ import org.junit.Test;
  */
 public class RedisTest {
 
-    @Test
+    //@Test
     public void test(){
         JedisClient jedisClient = new JedisClient();
         jedisClient.set("test1","myvalue1",1000);
