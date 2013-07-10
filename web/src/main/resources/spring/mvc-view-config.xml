@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	- DispatcherServlet application context for PetClinic's web tier.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:oxm="http://www.springframework.org/schema/oxm"
+       xsi:schemaLocation="http://www.springframework.org/schema/oxm
+         http://www.springframework.org/schema/oxm/spring-oxm.xsd
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+    - The ContentNegotiatingViewResolver delegates to the InternalResourceViewResolver and BeanNameViewResolver,
+    - and uses the requested media type (determined by the path extension) to pick a matching view. 
+    - When the media type is 'text/html', it will delegate to the InternalResourceViewResolver's JstlView, 
+    - otherwise to the BeanNameViewResolver.
+    -->
+    <bean id="freemarkerConfig"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="" />
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">10</prop>
+                <prop key="locale">zh_CN</prop>
+                <prop key="datetime_format">yyyy-MM-dd</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
+                <prop key="number_format">#.##</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="cache" value="false" />
+        <property name="prefix" value="/WEB-INF/ftl/"/>
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+    </bean>
+
+
+   <!--
+   <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="viewResolvers">
+        	<list>
+        		 &lt;!&ndash; Default viewClass: JSTL view (JSP with html output) &ndash;&gt;
+			    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			        &lt;!&ndash; Example: a logical view name of 'vets' is mapped to '/WEB-INF/jsp/vets.jsp' &ndash;&gt;
+			        <property name="prefix" value="/WEB-INF/jsp/"/>
+			        <property name="suffix" value=".jsp"/>
+			    </bean>
+			
+			    &lt;!&ndash; Used here for 'xml' and 'atom' views  &ndash;&gt;
+			    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+        	</list>
+        </property>
+    </bean>
+    -->
+
+</beans>
