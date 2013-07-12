@@ -74,4 +74,17 @@ public class IndexController {
         map.put("userList",userList);
         return JSONObject.fromObject(map).toString();
     }
+
+    @RequestMapping(value = {"json/test"},method = RequestMethod.GET)
+    @ResponseBody
+    public String jsonTest(String json){
+
+        //method 1
+        JSONObject jsonObject = JSONObject.fromObject(json);
+        String m = jsonObject.get("message").toString();
+        String t = jsonObject.get("time").toString();
+        String n = jsonObject.get("name").toString();
+
+        return "";
+    }
 }

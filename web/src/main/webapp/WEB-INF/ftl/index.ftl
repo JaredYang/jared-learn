@@ -9,6 +9,7 @@
 ${hello};
 
 <p><a id="bt" href="javascript:;">click me</a> </p>
+<p><a id="bt2" href="javascript:;">click me</a> </p>
 
 </body>
 <script type="text/javascript">
@@ -18,6 +19,17 @@ ${hello};
                 type:"get",
                 url:"/jared/delete/1",
                 dataType : 'json',
+                success :function(r){
+                    console.log(r);
+                }
+            } );
+        });
+
+        $("#bt2").click(function(){
+            $.ajax({
+                type:"get",
+                url:"/jared/json/test",
+                data : {json :'{"message":"Message123","time":"time123","name":"test123"}'},
                 success :function(r){
                     console.log(r);
                 }
