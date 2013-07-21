@@ -72,7 +72,6 @@ public class LuceneTest {
             System.out.println("Searching for: " + query.toString(field));
             TopDocs results = indexSearch.search(query, 100);
             ScoreDoc[] hits = results.scoreDocs;
-            hits = indexSearch.search(query, 100).scoreDocs;
             for (int i = 0; i < hits.length; i++) {
                 System.out.println("doc="+hits[i].doc+" score="+hits[i].score);
                 Document doc = indexSearch.doc(hits[i].doc);
