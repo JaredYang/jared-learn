@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!-- 构造方法注入 -->
+    <bean id="people" class="com.jared.core.model.People">
+        <constructor-arg  index="0"  name="id" value="1"/>
+        <constructor-arg  index="1" name="name" value="jared"/>
+        <constructor-arg  index="2" name="age" value="25"/>
+    </bean>
+
+    <!-- set 注入-->
+    <bean id="user" class="com.jared.core.model.User">
+         <property name="id" value="1"/>
+         <property name="name" value="jared"/>
+         <property name="age" value="22"/>
+    </bean>
+
+   <!-- <bean id="peopleService" class="com.jared.core.service.impl.PeopleServiceImpl" />
+    <bean id="userService" class="com.jared.core.service.impl.UserServiceImpl" >
+
+    </bean>-->
+
+</beans>

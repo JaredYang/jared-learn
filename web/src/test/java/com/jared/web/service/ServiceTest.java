@@ -1,11 +1,8 @@
 package com.jared.web.service;
 
-import com.jared.core.model.People;
-import com.jared.core.service.Impl.PeopleServiceImpl;
-import com.jared.core.service.PeopleService;
-import org.junit.Test;
-
-import java.util.Date;
+import com.jared.core.service.UserService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,14 +12,11 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class ServiceTest {
-    @Test
-    public void peopleServiceTest(){
+    //@Test
+    public void peopleServiceTest() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        UserService userService = applicationContext.getBean("userService", UserService.class);
+        userService.say("hello world");
 
-        PeopleService peopleService = new PeopleServiceImpl();
-        People people = new People();
-        people.setName("杨俊德");
-        people.setAge(25);
-        people.setBirthDay(new Date());
-        peopleService.insertPeople(people);
     }
 }
