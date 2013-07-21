@@ -1,3 +1,4 @@
+/*
 package com.jared.core.inteceptor;
 
 import com.jared.core.common.util.AesCryptUtil;
@@ -13,13 +14,15 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+*/
 /**
  * Created with IntelliJ IDEA.
  * User: junde.yang
  * Date: 13-1-25
  * Time: 下午6:31
  * To change this template use File | Settings | File Templates.
- */
+ *//*
+
 public class UserLoadInterceptor extends HandlerInterceptorAdapter {
     private static final DataBind<UserBase> LOGIN_USER_DATA_BIND = DataBindManager.getInstance().getDataBind(DataBindManager.DataBindType.LOGIN_USER);
     public static final int MAX_DOMAIN_LENGTH = 12;
@@ -91,3 +94,4 @@ public class UserLoadInterceptor extends HandlerInterceptorAdapter {
 
 
 }
+*/

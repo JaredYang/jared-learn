@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link href="jquery/css/start/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="jquery/js/jquery-ui-1.10.2.custom.js"></script>
+    <script type="text/javascript" src="jquery/development-bundle/ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+    <style type="text/css">
+        body{
+            font: 62.5% "Trebuchet MS", sans-serif;
+            margin: 50px;
+        }
+        .demoHeaders {
+            margin-top: 2em;
+        }
+        #dialog-link {
+            padding: .4em 1em .4em 20px;
+            text-decoration: none;
+            position: relative;
+        }
+        #dialog-link span.ui-icon {
+            margin: 0 5px 0 0;
+            position: absolute;
+            left: .2em;
+            top: 50%;
+            margin-top: -8px;
+        }
+
+    </style>
+<head>
+    <style type="text/css">
+    </style>
+<body>
+<!-- Accordion -->
+<h2 class="demoHeaders">Accordion</h2>
+
+<div id="accordion">
+    <h3>First</h3>
+
+    <div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+    <h3>Second</h3>
+
+    <div>Phasellus mattis tincidunt nibh.</div>
+    <h3>Third</h3>
+
+    <div>Nam dui erat, auctor a, dignissim quis.</div>
+</div>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">First</a></li>
+        <li><a href="#tabs-2">Second</a></li>
+        <li><a href="#tabs-3">Third</a></li>
+    </ul>
+    <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+    <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+</div>
+<p></p>
+<p>Date: <input type="text" id="datepicker" size="30" /></p>
+
+<h2 class="demoHeaders">Dialog</h2>
+<p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>Open Dialog</a></p>
+
+<div id="dialog" title="Dialog Title">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<!-- Button -->
+<h2 class="demoHeaders">Button</h2>
+<button id="button">A button element</button>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $("#accordion").accordion();
+
+        $( "#tabs" ).tabs();
+
+        $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+        $( "#datepicker" ).datepicker( $.datepicker.regional[ "zh-CN" ] );
+        $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+        $( "#dialog" ).dialog({
+            autoOpen: false,
+            width: 400,
+            buttons: [
+                {
+                    text: "Ok",
+                    click: function() {
+                        $( this ).dialog( "close" );
+                    }
+                },
+                {
+                    text: "Cancel",
+                    click: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            ]
+        });
+
+        // Link to open the dialog
+        $( "#dialog-link" ).click(function( event ) {
+            $( "#dialog" ).dialog( "open" );
+            event.preventDefault();
+        });
+
+        $( "#button" ).button();
+    })
+</script>
