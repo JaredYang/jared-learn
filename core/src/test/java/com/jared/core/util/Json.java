@@ -1,6 +1,9 @@
+/*
 package com.jared.core.util;
 
-import com.jared.core.json.JsonUtil;
+import com.jared.core.json*/
+/**//*
+.JsonUtil;
 import com.jared.core.model.User;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -10,13 +13,15 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * Created with IntelliJ IDEA.
  * User: junde.yang
  * Date: 13-7-10
  * Time: 下午2:46
  * To change this template use File | Settings | File Templates.
- */
+ *//*
+
 public class Json {
     private String[] strArr;
     private Boolean[] booleanArr;
@@ -81,3 +86,4 @@ public class Json {
     }
 
 }
+*/

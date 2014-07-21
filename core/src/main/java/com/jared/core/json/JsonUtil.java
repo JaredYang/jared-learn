@@ -1,3 +1,4 @@
+/*
 package com.jared.core.json;
 
 import net.sf.json.JSONArray;
@@ -9,13 +10,15 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 
+*/
 /**
  * Created with IntelliJ IDEA.
  * User: junde.yang
  * Date: 13-7-10
  * Time: 下午2:03
  * To change this template use File | Settings | File Templates.
- */
+ *//*
+
 public class JsonUtil {
     private static final Logger log = LoggerFactory.getLogger(JsonUtil.class);
 
@@ -53,3 +56,4 @@ public class JsonUtil {
     }
 
 }
+*/
