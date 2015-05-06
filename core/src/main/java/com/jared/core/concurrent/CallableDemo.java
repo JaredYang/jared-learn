@@ -20,6 +20,9 @@ public class CallableDemo {
 
         @Override
         public String call() throws Exception {
+            for (int i=0;i<100;i++){
+                Thread.currentThread().yield();
+            }
             return "result id : " + id;
         }
     }
@@ -31,10 +34,12 @@ public class CallableDemo {
             for (int i=0; i<10 ; i++){
                 futures.add(executor.submit(new TaskWithResult(i)));
             }
+            System.out.println("sub thread start done");
             for (Future<String> future : futures){
                 System.out.println(future.get());
 
             }
+            System.out.println("main thread stop");
         } catch (Exception e){
             e.printStackTrace();
         } finally {
