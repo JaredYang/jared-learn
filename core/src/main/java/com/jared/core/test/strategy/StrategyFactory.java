@@ -15,6 +15,7 @@ public class StrategyFactory {
     }
 
     public double getPrice(){
+        Integer.parseInt("s");
         return strategy.getPrice();
     }
 }
