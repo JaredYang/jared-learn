@@ -16,7 +16,9 @@ public class ThreadJoin {
 
     private static void mainWork(){
         try {
+            System.out.println("main thread start");
             Thread.sleep(3000L);
+            System.out.println("main thread sleep end");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

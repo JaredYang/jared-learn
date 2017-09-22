@@ -12,9 +12,11 @@ public class SubThread extends Thread{
 
     private void work(){
         try {
+            System.out.println("sub thread start");
             sleep(5000L);
+            System.out.println("sub thread sleep end");
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("sub thread interrupt");
         }
     }
 
