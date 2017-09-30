@@ -4,13 +4,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * Created with IntelliJ IDEA.
- * User: junde.yang
- * Date: 14-7-18
- * Time: 下午6:29
- * To change this template use File | Settings | File Templates.
- */
+
 public class TestJoin extends Thread {
 
     private int id;

@@ -2,13 +2,6 @@ package com.jared.core.io;
 
 import java.io.*;
 
-/**
- * Created with IntelliJ IDEA.
- * User: junde.yang
- * Date: 13-5-24
- * Time: 下午6:42
- * To change this template use File | Settings | File Templates.
- */
 public class FileUtil {
 
     public static void main(String[] args) {

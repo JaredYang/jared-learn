@@ -13,7 +13,7 @@
     <!-- ========================= RESOURCE DEFINITIONS ========================= -->
 
 
-    <context:component-scan base-package="com.jared.core.service"/>
+    <context:component-scan base-package="com.jared.core"/>
 
     <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
     <!-- (in this case, JDBC-related settings for the JPA EntityManager definition below) -->

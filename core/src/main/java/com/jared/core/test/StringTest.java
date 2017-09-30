@@ -1,12 +1,6 @@
 package com.jared.core.test;
 
-/**
- * Created with IntelliJ IDEA.
- * User: junde.yang
- * Date: 13-4-7
- * Time: 下午5:15
- * To change this template use File | Settings | File Templates.
- */
+
 public class StringTest {
     public static void main(String[] args) {
         testStringObject();

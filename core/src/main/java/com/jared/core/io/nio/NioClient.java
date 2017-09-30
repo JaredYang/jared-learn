@@ -9,13 +9,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Set;
 
-/**
- * Created with IntelliJ IDEA.
- * User: junde.yang
- * Date: 14-4-9
- * Time: 上午11:51
- * To change this template use File | Settings | File Templates.
- */
+
 public class NioClient {
 
     private static int flag = 0;
